@@ -6,6 +6,7 @@ import { createStorage } from "@/utils/Storage";
 import { defineStore } from "pinia";
 import router from "@/router";
 import { PiniaEnum } from "@/enums/piniaEnum";
+import { store } from "..";
 
 const Storage = createStorage({ storage: localStorage });
 
@@ -58,9 +59,12 @@ export const useUserStore = defineStore({
         const response = await userLoginApi(params);
         const { data, code } = response;
         if (code === ResultEnum.SUCCESS) {
-          router.push(PageEnum.BASE_HOME);
-          // save token
           this.setToken(data.token);
+          const redirectUrl = decodeURIComponent(
+            (router.currentRoute?.value?.query?.redirect as string) ||
+              PageEnum.BASE_HOME
+          );
+          router.push(redirectUrl);
         }
         return Promise.resolve(response);
       } catch (error) {
@@ -94,7 +98,10 @@ export const useUserStore = defineStore({
       Storage.remove(LocalStorageEnum.ACCESS_TOKEN);
       Storage.remove(LocalStorageEnum.CURRENT_USER);
       router.push(PageEnum.BASE_LOGIN);
-      location.reload();
     }
   }
 });
+
+export function useUserStoreWithOut() {
+  return useUserStore(store);
+}

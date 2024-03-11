@@ -20,17 +20,4 @@ export interface toRouteType extends RouteLocationNormalized {
   };
 }
 
-router.beforeEach((to: toRouteType, from, next) => {
-  NProgress.start();
-  // 路由缓存
-  useCachedViewStoreHook().addCachedView(to);
-  // 页面 title
-  setPageTitle(to.meta.title);
-  next();
-});
-
-router.afterEach(() => {
-  NProgress.done();
-});
-
 export default router;

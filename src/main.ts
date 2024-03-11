@@ -11,11 +11,17 @@ import "virtual:svg-icons-register";
 
 import App from "./App.vue";
 import router from "./router";
+import { setupRouterGuard } from "./router/guard";
 
 async function bootstrap() {
   const app = createApp(App);
+
   app.use(store);
+
   app.use(router);
+
+  setupRouterGuard(router);
+
   app.mount("#app");
 }
 

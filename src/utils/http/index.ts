@@ -7,7 +7,7 @@ import Axios, {
 import { ContentTypeEnum, ResultEnum } from "@/enums/requestEnum";
 import NProgress from "../progress";
 import { showFailToast } from "vant";
-import { useUserStore } from "@/store/modules/user";
+import { useUserStoreWithOut } from "@/store/modules/user";
 
 // 默认 axios 实例请求配置
 const configDefault = {
@@ -30,7 +30,7 @@ class Http {
     Http.axiosInstance.interceptors.request.use(
       config => {
         NProgress.start();
-        const userStore = useUserStore();
+        const userStore = useUserStoreWithOut();
         const token = userStore.getToken;
         // 发送请求前，可在此携带 token
         if (token) {

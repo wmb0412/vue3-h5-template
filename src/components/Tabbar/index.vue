@@ -32,9 +32,9 @@ const tabbarData = reactive([
   },
   {
     icon: "user-o",
-    title: "关于",
+    title: "用户",
     to: {
-      name: "About"
+      name: "User"
     }
   }
 ]);
