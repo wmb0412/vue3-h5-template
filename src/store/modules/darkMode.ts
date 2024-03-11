@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { store } from "@/store";
+import { PiniaEnum } from "@/enums/piniaEnum";
 
 const darkModeKey = "__dark_mode__";
 const isDarkMode = () => {
@@ -12,7 +13,7 @@ const isDarkMode = () => {
 };
 
 export const useDarkModeStore = defineStore({
-  id: "dark-mode",
+  id: PiniaEnum.DARK_MODE,
   state: () => ({
     darkMode: isDarkMode()
   }),

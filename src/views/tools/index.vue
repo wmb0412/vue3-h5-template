@@ -2,14 +2,13 @@
 import { getListApi, getListApiError } from "@/api/mock";
 import { reactive } from "vue";
 import { showFailToast, showSuccessToast } from "vant";
-import "vant/es/toast/style";
 
 const showList: string[] = reactive([]);
 
 const handleSuccessReq = async () => {
-  const { list } = await getListApi();
+  const { data } = await getListApi();
   showSuccessToast("请求成功");
-  showList.push(...list);
+  showList.push(...data);
 };
 const handleErrorReq = () => {
   getListApiError().then(

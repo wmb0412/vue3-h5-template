@@ -3,7 +3,7 @@ import { http } from "@/utils/http";
 type ListResult = {
   code: number;
   message: string;
-  list: Array<any>;
+  data: Array<any>;
 };
 
 export function getListApi(params?: object): Promise<ListResult> {

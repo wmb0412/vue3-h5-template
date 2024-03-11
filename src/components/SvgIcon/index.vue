@@ -1,58 +1,49 @@
-<script setup lang="ts">
-import { isExternal } from "@/utils/validate";
-import { computed } from "vue";
-
-interface Props {
-  name: string;
-  className?: string;
-}
-const props = withDefaults(defineProps<Props>(), {
-  name: "",
-  className: ""
-});
-
-const isExternalIcon = computed(() => isExternal(props.name));
-const iconName = computed(() => `#icon-${props.name}`);
-const svgClass = computed(() => {
-  if (props.className) {
-    return "svg-icon " + props.className;
-  } else {
-    return "svg-icon";
-  }
-});
-// 外链 icon
-const styleExternalIcon = computed(() => {
-  return {
-    mask: `url(${props.name}) no-repeat 50% 50%`,
-    "-webkit-mask": `url(${props.name}) no-repeat 50% 50%`
-  };
-});
-</script>
-
 <template>
-  <div
-    v-if="isExternalIcon"
-    :style="styleExternalIcon"
-    class="svg-external-icon svg-icon"
-    v-bind="$attrs"
-  />
-  <svg v-else :class="svgClass" aria-hidden="true" v-bind="$attrs">
-    <use :xlink:href="iconName" />
+  <svg :style="getStyle" aria-hidden="true">
+    <use :xlink:href="symbolId" :fill="color" />
   </svg>
 </template>
 
-<style scoped>
-.svg-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-}
+<script lang="ts">
+import type { CSSProperties } from "vue";
+import { computed, defineComponent } from "vue";
 
-.svg-external-icon {
-  background-color: currentColor;
-  mask-size: cover !important;
-  display: inline-block;
-}
-</style>
+export default defineComponent({
+  name: "SvgIcon",
+  props: {
+    prefix: {
+      type: String,
+      default: "icon"
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: [Number, String],
+      default: 16
+    },
+    color: {
+      type: String,
+      default: "#333"
+    }
+  },
+  setup(props) {
+    const symbolId = computed(() => `#${props.prefix}-${props.name}`);
+
+    const getStyle = computed((): CSSProperties => {
+      const { size } = props;
+      let s = `${size}`;
+      s = `${s.replace("px", "")}px`;
+      return {
+        width: s,
+        height: s
+      };
+    });
+
+    return { symbolId, getStyle };
+  }
+});
+</script>
+
+<style scoped lang="less"></style>

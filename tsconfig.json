@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "strict": false,
     "jsx": "preserve",
     "importHelpers": true,

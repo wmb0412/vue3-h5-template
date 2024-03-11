@@ -4,6 +4,11 @@ import Demo from "@/views/demo/index.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/login/index.vue")
+  },
+  {
     path: "/",
     name: "root",
     component: Layout,

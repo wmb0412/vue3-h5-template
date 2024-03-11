@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 import { store } from "@/store";
 import type { toRouteType } from "@/router";
+import { PiniaEnum } from "@/enums/piniaEnum";
 
 export const useCachedViewStore = defineStore({
-  id: "cached-view",
+  id: PiniaEnum.CACHED_VIEW,
   state: () => ({
     // 缓存页面 keepAlive
     cachedViewList: [] as string[]

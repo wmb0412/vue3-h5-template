@@ -7,7 +7,7 @@ import Axios, {
 import { ContentTypeEnum, ResultEnum } from "@/enums/requestEnum";
 import NProgress from "../progress";
 import { showFailToast } from "vant";
-import "vant/es/toast/style";
+import { useUserStore } from "@/store/modules/user";
 
 // 默认 axios 实例请求配置
 const configDefault = {
@@ -30,10 +30,12 @@ class Http {
     Http.axiosInstance.interceptors.request.use(
       config => {
         NProgress.start();
+        const userStore = useUserStore();
+        const token = userStore.getToken;
         // 发送请求前，可在此携带 token
-        // if (token) {
-        //   config.headers['token'] = token
-        // }
+        if (token) {
+          config.headers["token"] = token;
+        }
         return config;
       },
       (error: AxiosError) => {
@@ -48,20 +50,15 @@ class Http {
     Http.axiosInstance.interceptors.response.use(
       (response: AxiosResponse) => {
         NProgress.done();
-        // 与后端协定的返回字段
-        const { code, message, result } = response.data;
+        const { data } = response;
+        const { code, message } = data;
         // 判断请求是否成功
-        const isSuccess =
-          result &&
-          Reflect.has(response.data, "code") &&
-          code === ResultEnum.SUCCESS;
-        if (isSuccess) {
-          return result;
-        } else {
-          // 处理请求错误
-          // showFailToast(message);
-          return Promise.reject(response.data);
+        const isSuccess = code === ResultEnum.SUCCESS;
+        if (!isSuccess) {
+          showFailToast(message);
+          return Promise.reject(data);
         }
+        return data;
       },
       (error: AxiosError) => {
         NProgress.done();

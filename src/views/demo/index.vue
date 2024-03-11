@@ -1,6 +1,6 @@
 <script setup lang="ts" name="Demo">
 import { reactive } from "vue";
-
+import logoUrl from "@/assets/imgs/logo.svg";
 const contentList = reactive([
   "✔ ⚡ Vue3 + Vite4",
   "✔ 🍕 TypeScript",
@@ -22,15 +22,11 @@ const contentList = reactive([
 
 <template>
   <div class="demo-content px-[12px]">
-    <img
-      class="block w-[120px] mx-auto mb-[20px] pt-[30px]"
-      alt="Vue logo"
-      src="~@/assets/logo_melomini.png"
-    />
-    <div class="pl-[12px] border-l-[3px] border-[color:#41b883]">
+    <van-image :src="logoUrl" class="w-full" />
+    <div class="pl-[12px] border-l-[3px] border-g-primary">
       <a
         class="flex items-center"
-        href="https://github.com/yulimchen/vue3-h5-template"
+        href="https://github.com/wmb0412/vue3-h5-template"
         target="_blank"
       >
         <svg-icon class="text-[20px] mr-[8px]" name="github" />

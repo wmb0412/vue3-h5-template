@@ -8,13 +8,13 @@ export default defineMock([
     body: {
       code: 0,
       message: "OK",
-      result: Mock.mock({
+      data: Mock.mock({
         "list|10": [
           {
             "id|+1": 1
           }
         ]
-      })
+      }).list
     }
   },
   {
@@ -23,7 +23,7 @@ export default defineMock([
     body: {
       code: 1,
       message: "ERROR",
-      result: null
+      data: null
     }
   }
 ]);
