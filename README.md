@@ -1,24 +1,8 @@
 
 
 <div align="center">
-	<img src="src/assets/logo_melomini.png" alt="logo_melomini" style="width:20%;" />
+	<img src="src/assets/imgs/logo.svg" alt="logo_melomini" style="width:20%;" />
 </div>
-
-<div align="center">
-	<a href="https://github.com/yulimchen/vue3-h5-template/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/yulimchen/vue3-h5-template.svg?style=flat-square" alt="license">
-  </a>
-  <a href="https://github.com/yulimchen/vue3-h5-template/releases">
-    <img src="https://img.shields.io/github/release/yulimchen/vue3-h5-template.svg?style=flat-square" alt="GitHub release">
-  </a>
-  <a href="https://github.com/yulimchen/vue3-h5-template">
-    <img src="https://img.shields.io/github/stars/yulimchen/vue3-h5-template?style=flat-square" alt="GitHub stars">
-  </a>
-  <a href="https://github.com/yulimchen/vue3-h5-template">
-    <img src="https://img.shields.io/github/forks/yulimchen/vue3-h5-template?style=flat-square" alt="GitHub forks">
-  </a>
-</div>
-
 
 <h1 align="center">Vue3 h5 template</h1>
 
@@ -33,27 +17,19 @@
 - [x] Vue-router 4
 - [x] 支持 SVG 图标自动注册组件
 - [x] vw 视口适配
-- [x] Axios 封装
+- [x] Axios 封装支持取消
 - [x] 打包资源 gzip 压缩
 - [x] 开发环境支持 Mock 数据
 - [x] ESLint
 - [x] 首屏加载动画
 - [x] 开发环境调试面板
 - [x] 生产环境 CDN 依赖
+- [ ] 国际化多语言
 
-**主分支默认 TypeScript，如果你希望使用的是 JavaScript 语言，请切换 [js-version](https://github.com/yulimchen/vue3-h5-template/tree/js-version) 分支进行开发**
 
 ## 在线预览Preview
 
 👓 [点击这里](https://yulimchen.github.io/vue3-h5-template/)（PC浏览器请切换手机端模式）
-
-
-
-
-## 截图
-
-![](docs/assets/img/Snipaste_2023-05-04_21-52-10.png)
-
 
 
 ## 运行项目
@@ -72,16 +48,6 @@ pnpm install
 
 # 启动服务
 pnpm dev
-```
-
-如果你需要的是基于 `JavaScript` 构建的 H5 项目模板，可切换到 [js-version](https://github.com/yulimchen/vue3-h5-template/tree/js-version) 分支进行开发
-
-```shell
-# 克隆项目
-git clone -b js-version https://github.com/yulimchen/vue3-h5-template.git
-
-# 同上进入目录&安装依赖等
-cd vue3-h5-template
 ```
 
 
@@ -162,7 +128,6 @@ const routes: Array<RouteRecordRaw> = [
 
 ### - <span id="console">调试面板 eruda</span>
 
-![](docs/assets/img/Snipaste_2023-05-04_21-58-28.png)
 
 为了方便移动端查看 log 信息和调试，开发环境引入了 eruda 调试面板的 cdn。如果你的开发环境不需要的话请在 `.env.development` 中修改值
 

@@ -21,7 +21,7 @@ const contentList = reactive([
 </script>
 
 <template>
-  <div class="demo-content px-[12px]">
+  <div class="px-[12px]">
     <van-image :src="logoUrl" class="w-full" />
     <div class="pl-[12px] border-l-[3px] border-g-primary">
       <a

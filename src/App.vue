@@ -5,7 +5,7 @@ import NavBar from "@/components/NavBar/index.vue";
 <template>
   <van-config-provider
     :theme="useDarkMode() ? 'dark' : 'light'"
-    class="h-full flex flex-col"
+    class="h-full flex flex-col bg-g-background-2"
   >
     <nav-bar />
     <div class="flex-1 overflow-auto">

@@ -5,7 +5,8 @@ module.exports = {
     extend: {},
     colors: {
       "g-gray1": "var(--g-gray1)",
-      "g-primary": "var(--g-primary)"
+      "g-primary": "var(--g-primary)",
+      "g-background-2": "var(--g-background-2)"
     }
   },
   plugins: []
