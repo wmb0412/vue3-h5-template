@@ -8,6 +8,8 @@ import { ContentTypeEnum, ResultEnum } from "@/enums/requestEnum";
 import NProgress from "../progress";
 import { showFailToast } from "vant";
 import { useUserStoreWithOut } from "@/store/modules/user";
+import { AxiosCanceler } from "./axiosCancel";
+import { HttpResult } from "./types";
 
 // 默认 axios 实例请求配置
 const configDefault = {
@@ -24,12 +26,14 @@ class Http {
   private static axiosInstance: AxiosInstance;
   // 请求配置
   private static axiosConfigDefault: AxiosRequestConfig;
+  private axiosCanceler: AxiosCanceler;
 
   // 请求拦截
   private httpInterceptorsRequest(): void {
     Http.axiosInstance.interceptors.request.use(
       config => {
         NProgress.start();
+        this.axiosCanceler.addPending(config);
         const userStore = useUserStoreWithOut();
         const token = userStore.getToken;
         // 发送请求前，可在此携带 token
@@ -50,6 +54,7 @@ class Http {
     Http.axiosInstance.interceptors.response.use(
       (response: AxiosResponse) => {
         NProgress.done();
+        response && this.axiosCanceler.removePending(response.config);
         const { data } = response;
         const { code, message } = data;
         // 判断请求是否成功
@@ -113,12 +118,13 @@ class Http {
   constructor(config: AxiosRequestConfig) {
     Http.axiosConfigDefault = config;
     Http.axiosInstance = Axios.create(config);
+    this.axiosCanceler = new AxiosCanceler();
     this.httpInterceptorsRequest();
     this.httpInterceptorsResponse();
   }
 
   // 通用请求函数
-  public request<T>(paramConfig: AxiosRequestConfig): Promise<T> {
+  public request<T>(paramConfig: AxiosRequestConfig): Promise<HttpResult<T>> {
     const config = { ...Http.axiosConfigDefault, ...paramConfig };
     return new Promise((resolve, reject) => {
       Http.axiosInstance

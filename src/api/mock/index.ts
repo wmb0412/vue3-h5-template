@@ -1,21 +1,15 @@
 import { http } from "@/utils/http";
 
-type ListResult = {
-  code: number;
-  message: string;
-  data: Array<any>;
-};
-
-export function getListApi(params?: object): Promise<ListResult> {
-  return http.request({
+export function getListApi(params?: object) {
+  return http.request<Array<any>>({
     url: "/list/get",
     method: "get",
     params
   });
 }
 
-export function getListApiError(data?: object): Promise<ListResult> {
-  return http.request({
+export function getListApiError(data?: object) {
+  return http.request<any>({
     url: "/list/error",
     method: "post",
     data
