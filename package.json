@@ -21,10 +21,13 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "release": "standard-version",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "font": "node tools/iconfont.js"
   },
   "dependencies": {
     "axios": "^1.5.1",
+    "classnames": "^2.5.1",
+    "iconfont-help": "^1.0.2",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",

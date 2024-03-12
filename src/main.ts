@@ -3,6 +3,8 @@ import { store } from "./store";
 // normalize.css
 import "normalize.css/normalize.css";
 import "vant/es/toast/style";
+
+import "@/assets/iconfont/iconfont.css";
 // 全局样式
 import "./styles/index.less";
 // tailwindcss
