@@ -15,7 +15,7 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <van-form @submit="onSubmit" class="pt-4 mx-8">
+  <van-form @submit="onSubmit" class="pt-[16px] mx-[32px]">
     <van-field
       v-model="username"
       name="username"
@@ -29,7 +29,7 @@ const onSubmit = async () => {
       @click-right-icon="switchPassType = !switchPassType"
       name="password"
       label="密码"
-      class="mt-4"
+      class="mt-[16px]"
       :right-icon="switchPassType ? '1' : '2'"
       placeholder="密码"
       :rules="[{ required: true, message: '请填写密码' }]"
@@ -39,16 +39,16 @@ const onSubmit = async () => {
         <van-icon v-else name="closed-eye" />
       </template>
     </van-field>
-    <div class="flex justify-between mt-4">
+    <div class="flex justify-between mt-[16px]">
       <div class="flex items-center">
-        <van-switch v-model="rememberMe" size="18px" class="mr-4" />
+        <van-switch v-model="rememberMe" size="18px" class="mr-[16px]" />
         <span>记住我</span>
       </div>
       <a>忘记密码?</a>
     </div>
-    <div class="mt-8">
+    <div class="mt-[32px]">
       <van-button block type="primary" native-type="submit"> 登录 </van-button>
-      <van-button class="!mt-4" block type="default"> 注册 </van-button>
+      <van-button class="!mt-[16px]" block type="default"> 注册 </van-button>
     </div>
   </van-form>
 </template>

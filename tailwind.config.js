@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      "g-gray1": "var(--color-g-gray1)",
-      "g-primary": "var(--color-g-primary)"
+      "g-gray1": "var(--g-gray1)",
+      "g-primary": "var(--g-primary)"
     }
   },
   plugins: []

@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { store } from "./store";
 // normalize.css
 import "normalize.css/normalize.css";
+import "vant/es/toast/style";
 // 全局样式
 import "./styles/index.less";
 // tailwindcss
