@@ -100,6 +100,7 @@ const transform: AxiosTransform = {
    * @description: 响应错误处理
    */
   responseInterceptorsCatch: (axiosInstance: AxiosInstance, error: any) => {
+    NProgress.done();
     const { config } = error || {};
 
     // HTTP 状态码
