@@ -1,9 +1,8 @@
-import { http } from "@/utils/http";
+import { defHttp } from "@/utils/http/axios";
 
 export function userLoginApi(data): any {
-  return http.request({
+  return defHttp.post({
     url: "/user/login",
-    method: "post",
     data
   });
 }
@@ -12,18 +11,12 @@ export function userLoginApi(data): any {
  * @description: 获取用户信息
  */
 export function getUserInfoApi() {
-  return http.request({
-    url: "/user/info",
-    method: "get"
-  });
+  return defHttp.get("/user/info");
 }
 
 /**
  * @description: 用户登出
  */
 export function userLogoutApi() {
-  return http.request({
-    url: "/user/logout",
-    method: "POST"
-  });
+  return defHttp.post("/user/logout");
 }

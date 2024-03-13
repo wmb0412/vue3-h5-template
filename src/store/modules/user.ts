@@ -1,6 +1,5 @@
 import { getUserInfoApi, userLoginApi, userLogoutApi } from "@/api/user";
 import { PageEnum } from "@/enums/pageEnum";
-import { ResultEnum } from "@/enums/requestEnum";
 import { LocalStorageEnum } from "@/enums/storageEnum";
 import { createStorage } from "@/utils/Storage";
 import { defineStore } from "pinia";
@@ -55,21 +54,13 @@ export const useUserStore = defineStore({
     },
 
     async Login(params: LoginParams) {
-      try {
-        const response = await userLoginApi(params);
-        const { data, code } = response;
-        if (code === ResultEnum.SUCCESS) {
-          this.setToken(data.token);
-          const redirectUrl = decodeURIComponent(
-            (router.currentRoute?.value?.query?.redirect as string) ||
-              PageEnum.BASE_HOME
-          );
-          router.push(redirectUrl);
-        }
-        return Promise.resolve(response);
-      } catch (error) {
-        return Promise.reject(error);
-      }
+      const data = await userLoginApi(params);
+      this.setToken(data.token);
+      const redirectUrl = decodeURIComponent(
+        (router.currentRoute?.value?.query?.redirect as string) ||
+          PageEnum.BASE_HOME
+      );
+      router.push(redirectUrl);
     },
 
     async GetUserInfo() {

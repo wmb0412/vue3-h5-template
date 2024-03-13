@@ -28,5 +28,5 @@ coverage
 *.sln
 *.sw?
 
-/src/typings/components.d.ts
+/src/types/components.d.ts
 /src/assets/iconfont/*
