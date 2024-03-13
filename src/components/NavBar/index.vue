@@ -7,9 +7,15 @@ const onClickRight = () => {
 </script>
 
 <template>
-  <van-nav-bar fixed placeholder @click-right="onClickRight">
+  <van-nav-bar fixed placeholder>
     <template #right>
-      <svg-icon class="text-[18px]" :name="useDarkMode() ? 'light' : 'dark'" />
+      <div>
+        <Icon name="icon-duoyuyan" className="mr-[20px]" />
+        <Icon
+          :name="useDarkMode() ? 'icon-yueliang' : 'icon-taiyang'"
+          @click="onClickRight"
+        />
+      </div>
     </template>
   </van-nav-bar>
 </template>

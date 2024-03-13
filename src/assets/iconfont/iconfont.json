@@ -6,6 +6,27 @@
   "description": "图标库",
   "glyphs": [
     {
+      "icon_id": "5320519",
+      "name": "太阳",
+      "font_class": "taiyang",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "9371346",
+      "name": "月亮",
+      "font_class": "yueliang",
+      "unicode": "e764",
+      "unicode_decimal": 59236
+    },
+    {
+      "icon_id": "35720565",
+      "name": "多语言",
+      "font_class": "duoyuyan",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
       "icon_id": "8127577",
       "name": "帮助",
       "font_class": "help",

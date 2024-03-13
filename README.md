@@ -1,7 +1,7 @@
 
 
 <div align="center">
-	<img src="src/assets/imgs/logo.svg" alt="logo_melomini" style="width:20%;" />
+	<img src="docs/assets/img/logo.svg" alt="logo_melomini" />
 </div>
 
 <h1 align="center">Vue3 h5 template</h1>
@@ -15,7 +15,7 @@
 - [x] 🍍 Pinia 状态管理
 - [x] 🌓 支持深色模式
 - [x] Vue-router 4
-- [x] 支持 SVG 图标自动注册组件
+- [x] 支持 SVG 图标自动注册组件、iconfont注册，自动下载
 - [x] vw 视口适配
 - [x] Axios 封装支持取消
 - [x] 打包资源 gzip 压缩
@@ -27,18 +27,13 @@
 - [ ] 国际化多语言
 
 
-## 在线预览Preview
-
-👓 [点击这里](https://yulimchen.github.io/vue3-h5-template/)（PC浏览器请切换手机端模式）
-
-
 ## 运行项目
 
 注意：要求 Node 版本 16+，可使用 [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) 进行本地 Node 版本管理，同时建议使用 [pnpm](https://pnpm.io/zh/installation) 包管理器。
 
 ```shell
 # 克隆项目
-git clone https://github.com/yulimchen/vue3-h5-template.git
+git clone https://github.com/wmb0412/vue3-h5-template.git
 
 # 进入项目目录
 cd vue3-h5-template
@@ -50,6 +45,16 @@ pnpm install
 pnpm dev
 ```
 
+## 项目截图
+<div align="center">
+	<img src="docs/assets/img/demo_login.png" alt="logo_melomini"  />
+</div>
+<div align="center">
+	<img src="docs/assets/img/demo_demo.png" alt="logo_melomini"  />
+</div>
+<div align="center">
+	<img src="docs/assets/img/demo_home.png" alt="logo_melomini"  />
+</div>
 
 
 ## 文档引导
@@ -234,16 +239,7 @@ feat(layout): 布局完成
 
 ## 鸣谢
 
- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 
-
- [vant-demo](https://github.com/youzan/vant-demo) 
-
- [vue-pure-admin](https://github.com/xiaoxian521/vue-pure-admin)
+ [vue3-h5-template](https://github.com/yulimchen/vue3-h5-template)
 
  [vue-vben-admin](https://github.com/vbenjs/vue-vben-admin)
 
-
-
-## License
-
-[MIT license](https://github.com/yulimchen/vue3-h5-template/blob/master/LICENSE).
