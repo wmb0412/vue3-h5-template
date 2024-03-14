@@ -1,32 +1,22 @@
 import { defineStore } from "pinia";
 import { store } from "@/store";
 import { PiniaEnum } from "@/enums/piniaEnum";
+import { LocalStorageEnum } from "@/enums/storageEnum";
 
-const darkModeKey = "__dark_mode__";
-const isDarkMode = () => {
-  const darkMode = window.localStorage.getItem(darkModeKey);
-  if (darkMode) {
-    return darkMode === "true";
-  } else {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-};
+// 系统是否是黑暗主题
+const initDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 export const useDarkModeStore = defineStore({
   id: PiniaEnum.DARK_MODE,
+  persist: {
+    key: LocalStorageEnum.PINIA_DARK_MODE
+  },
   state: () => ({
-    darkMode: isDarkMode()
+    darkMode: initDarkMode
   }),
   actions: {
     toggleDarkMode() {
       this.darkMode = !this.darkMode;
-      if (this.darkMode) {
-        document.documentElement.classList.add("dark");
-        window.localStorage.setItem(darkModeKey, "true");
-      } else {
-        document.documentElement.classList.remove("dark");
-        window.localStorage.setItem(darkModeKey, "false");
-      }
     }
   }
 });

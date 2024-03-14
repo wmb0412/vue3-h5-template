@@ -1,4 +1,7 @@
 export enum LocalStorageEnum {
-  CURRENT_USER = "CURRENT_USER",
-  ACCESS_TOKEN = "ACCESS_TOKEN"
+  PINIA_USER = "PINIA_USER",
+  /**
+   * 黑暗主题
+   */
+  PINIA_DARK_MODE = "PINIA_DARK_MODE"
 }

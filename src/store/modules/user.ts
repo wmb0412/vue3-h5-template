@@ -1,13 +1,10 @@
 import { getUserInfoApi, userLoginApi, userLogoutApi } from "@/api/user";
 import { PageEnum } from "@/enums/pageEnum";
 import { LocalStorageEnum } from "@/enums/storageEnum";
-import { createStorage } from "@/utils/Storage";
 import { defineStore } from "pinia";
 import router from "@/router";
 import { PiniaEnum } from "@/enums/piniaEnum";
 import { store } from "..";
-
-const Storage = createStorage({ storage: localStorage });
 
 interface LoginParams {
   username: string;
@@ -24,6 +21,9 @@ interface IUserState {
 }
 export const useUserStore = defineStore({
   id: PiniaEnum.APP_USER,
+  persist: {
+    key: LocalStorageEnum.PINIA_USER
+  },
   state: (): IUserState => ({
     userInfo: null,
     token: undefined,
@@ -31,12 +31,10 @@ export const useUserStore = defineStore({
   }),
   getters: {
     getUserInfo(): UserInfo {
-      return (
-        this.userInfo || Storage.get(LocalStorageEnum.CURRENT_USER, "") || {}
-      );
+      return this.userInfo || {};
     },
     getToken(): string {
-      return this.token || Storage.get(LocalStorageEnum.ACCESS_TOKEN, "");
+      return this.token;
     },
     getLastUpdateTime(): number {
       return this.lastUpdateTime;
@@ -45,12 +43,10 @@ export const useUserStore = defineStore({
   actions: {
     setToken(token: string | undefined) {
       this.token = token || "";
-      Storage.set(LocalStorageEnum.ACCESS_TOKEN, token);
     },
     setUserInfo(info: UserInfo | null) {
       this.userInfo = info;
       this.lastUpdateTime = new Date().getTime();
-      Storage.set(LocalStorageEnum.CURRENT_USER, info);
     },
 
     async Login(params: LoginParams) {
@@ -86,8 +82,6 @@ export const useUserStore = defineStore({
       }
       this.setToken(undefined);
       this.setUserInfo(null);
-      Storage.remove(LocalStorageEnum.ACCESS_TOKEN);
-      Storage.remove(LocalStorageEnum.CURRENT_USER);
       router.push(PageEnum.BASE_LOGIN);
     }
   }
