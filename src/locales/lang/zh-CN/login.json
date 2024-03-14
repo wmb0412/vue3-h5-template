@@ -1,0 +1,10 @@
+{
+    "account": "账号",
+    "password": "密码",
+    "accountPlaceholder": "请输入账号",
+    "passwordPlaceholder": "请输入密码",
+    "rememberMe": "记住我",
+    "forgetPassword": "忘记密码?",
+    "registerButton": "注册",
+    "loginButton": "登录"
+}

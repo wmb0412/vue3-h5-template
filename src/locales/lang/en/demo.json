@@ -1,0 +1,12 @@
+{
+  "requestDemo": {
+    "demo1": "Successful requests only return data (default)",
+    "demo2": "A successful request returns code, message, etc.",
+    "demo3": "A successful request returns the entire response body",
+    "demo4": "Click twice quickly and the first time is canceled.",
+    "demo5": "failed request",
+    "demo6": "Retry twice after failure",
+    "demo7": "Dialog prompt after failure",
+    "demoTitle": "Request example"
+  }
+}

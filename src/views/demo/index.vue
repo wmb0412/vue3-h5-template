@@ -1,50 +1,16 @@
-<script setup lang="ts" name="Demo">
-import { reactive } from "vue";
-import logoUrl from "@/assets/imgs/logo.svg";
-const contentList = reactive([
-  "✔ ⚡ Vue3 + Vite4",
-  "✔ 🍕 TypeScript",
-  "✔ ✨ Vant4 组件库",
-  "✔ 🌀 Tailwindcss 原子类框架",
-  "✔ 🍍 Pinia 状态管理",
-  "✔ 🌓 支持深色模式",
-  "✔ Vue-router 4",
-  "✔ 支持 SVG 图标自动注册组件",
-  "✔ vw 视口适配",
-  "✔ Axios 封装",
-  "✔ 打包资源 gzip 压缩",
-  "✔ 开发环境支持 Mock 数据",
-  "✔ ESLint",
-  "✔ 首屏加载动画",
-  "✔ 开发环境调试面板"
-]);
+<script setup lang="ts" name="Tools">
+import RequestDemo from "./RequestDemo.vue";
+import IconList from "./IconList.vue";
+import DemoTitle from "./DemoTitle.vue";
 </script>
 
 <template>
-  <div class="px-[12px]">
-    <van-image :src="logoUrl" class="w-full" />
-    <div class="pl-[12px] border-l-[3px] border-g-primary">
-      <a
-        class="flex items-center"
-        href="https://github.com/wmb0412/vue3-h5-template"
-        target="_blank"
-      >
-        <svg-icon class="text-[20px] mr-[8px]" name="github" />
-        <h3 class="font-bold text-[18px] my-[4px]">Vue3-h5-template</h3>
-        <svg-icon class="text-[12px] ml-[5px]" name="link" />
-      </a>
-    </div>
-    <div
-      class="text-[14px] py-[2px] px-[10px] rounded-[4px] bg-[var(--color-block-background)] mt-[14px]"
-    >
-      <p class="my-[14px] leading-[24px]">
-        🌱 基于 Vue3 全家桶、TypeScript、Vite 构建工具，开箱即用的 H5
-        移动端项目基础模板
-      </p>
-    </div>
-
-    <div class="demo-main">
-      <van-cell v-for="(item, idx) in contentList" :key="idx" :title="item" />
+  <div class="tools-content pt-[20px] px-[12px]">
+    <DemoTitle :title="$t('demo.requestDemo.demoTitle')" />
+    <RequestDemo />
+    <div class="mt-[30px]">
+      <ToolTitle title="iconfont" />
+      <IconList />
     </div>
   </div>
 </template>

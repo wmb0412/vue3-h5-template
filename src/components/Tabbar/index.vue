@@ -12,27 +12,28 @@
 </template>
 
 <script setup lang="ts">
+import { t } from "@/locales";
 import { ref, reactive } from "vue";
 
 const active = ref(0);
 const tabbarData = reactive([
   {
     icon: "wap-home-o",
-    title: "主页",
+    title: t("common.home"),
+    to: {
+      name: "Home"
+    }
+  },
+  {
+    icon: "gem-o",
+    title: t("common.demo"),
     to: {
       name: "Demo"
     }
   },
   {
-    icon: "gem-o",
-    title: "工具",
-    to: {
-      name: "Tools"
-    }
-  },
-  {
     icon: "user-o",
-    title: "用户",
+    title: t("common.user"),
     to: {
       name: "User"
     }

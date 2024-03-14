@@ -1,0 +1,12 @@
+{
+    "requestDemo": {
+        "demoTitle": "请求示例",
+        "demo1": "成功请求只返回data (默认)",
+        "demo2": "成功请求返回code，message等内容",
+        "demo3": "成功请求返回整个响应体",
+        "demo4": "快速点击两次，第一次被cancel",
+        "demo5": "失败请求",
+        "demo6": "失败后再重试两次",
+        "demo7": "失败后dialog提示"
+    }
+}

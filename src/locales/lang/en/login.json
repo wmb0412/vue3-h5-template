@@ -1,0 +1,10 @@
+{
+    "account": "account",
+    "accountPlaceholder": "Please input username",
+    "forgetPassword": "Forget Password?",
+    "loginButton": "Sign in",
+    "password": "password",
+    "passwordPlaceholder": "Please input password",
+    "registerButton": "Sign up",
+    "rememberMe": "Remember me"
+}

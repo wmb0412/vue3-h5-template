@@ -1,0 +1,19 @@
+{
+    "name": "Vue3-h5-template",
+    "describe": "🌱 基于 Vue3 全家桶、TypeScript、Vite 构建工具，开箱即用的 H5移动端项目基础模板",
+    "feature1": "✔ ⚡ Vue3 + Vite4",
+    "feature2": "✔ 🍕 TypeScript",
+    "feature3": "✔ ✨ Vant4 组件库",
+    "feature4": "✔ 🌀 Tailwindcss 原子类框架",
+    "feature5": "✔ 🍍 Pinia 状态管理",
+    "feature6": "✔ 🌓 支持深色模式",
+    "feature7": "✔ Vue-router 4",
+    "feature8": "✔ 支持 SVG 图标自动注册组件",
+    "feature9": "✔ vw 视口适配",
+    "feature10": "✔ Axios 封装",
+    "feature11": "✔ 打包资源 gzip 压缩",
+    "feature12": "✔ 开发环境支持 Mock 数据",
+    "feature13": "✔ ESLint",
+    "feature14": "✔ 首屏加载动画",
+    "feature15": "✔ 开发环境调试面板"
+}

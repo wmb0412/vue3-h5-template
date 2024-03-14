@@ -20,11 +20,14 @@ import "vant/es/toast/style";
 import "vant/es/dialog/style";
 import "vant/es/notify/style";
 import "vant/es/image-preview/style";
+import { setupI18n } from "./locales";
 
 async function bootstrap() {
   const app = createApp(App);
 
   app.use(store);
+
+  await setupI18n(app);
 
   app.use(router);
 

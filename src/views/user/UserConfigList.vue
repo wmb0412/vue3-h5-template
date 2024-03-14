@@ -6,7 +6,7 @@ const logout = () => userStore.Logout(true);
 
 <template>
   <div>
-    <van-cell title="退出登录" size="large" is-link @click="logout" />
+    <van-cell :title="$t('user.logOut')" size="large" is-link @click="logout" />
   </div>
 </template>
 

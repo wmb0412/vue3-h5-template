@@ -105,7 +105,8 @@ const transform: AxiosTransform = {
 
     // HTTP 状态码
     const status = error.response?.status;
-    checkStatus(status);
+    const msg: string = error.response?.data?.error?.message ?? "";
+    checkStatus(status, msg);
     // 添加自动重试机制 保险起见 只针对幂等的GET请求
     const retryRequest = new AxiosRetry();
     const { isOpenRetry } = config.requestOptions.retryRequest;

@@ -1,33 +1,35 @@
-import Layout from "@/layout/index.vue";
+import { fakerT as t } from "@/locales";
 import type { RouteRecordRaw } from "vue-router";
-import Demo from "@/views/demo/index.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: "login",
-    component: () => import("@/views/login/index.vue")
+    component: () => import("@/views/login/index.vue"),
+    meta: {
+      title: t("login.loginButton")
+    }
   },
   {
     path: "/",
     name: "root",
-    component: Layout,
+    component: () => import("@/layout/index.vue"),
     redirect: { name: "Demo" },
     children: [
       {
-        path: "demo",
-        name: "Demo",
-        component: Demo,
+        path: "home",
+        name: "Home",
+        component: () => import("@/views/home/index.vue"),
         meta: {
-          title: "主页"
+          title: t("common.home")
         }
       },
       {
-        path: "tools",
-        name: "Tools",
-        component: () => import("@/views/tools/index.vue"),
+        path: "demo",
+        name: "Demo",
+        component: () => import("@/views/demo/index.vue"),
         meta: {
-          title: "工具"
+          title: t("common.demo")
         }
       },
       {
@@ -35,7 +37,7 @@ const routes: Array<RouteRecordRaw> = [
         name: "User",
         component: () => import("@/views/user/index.vue"),
         meta: {
-          title: "用户",
+          title: t("common.user"),
           noCache: true
         }
       }

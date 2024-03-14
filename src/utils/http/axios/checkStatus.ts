@@ -1,40 +1,47 @@
+import { t } from "@/locales";
 import { showFailToast } from "vant";
 
-export function checkStatus(status) {
-  let message = "";
+export function checkStatus(status, msg) {
+  let errMessage = "";
   switch (status) {
     case 400:
-      message = "请求错误";
+      errMessage = `${msg}`;
       break;
     case 401:
-      message = "未授权，请登录";
+      errMessage = msg || t("sys.api.errMsg401");
       break;
     case 403:
-      message = "拒绝访问";
+      errMessage = t("sys.api.errMsg403");
+      break;
+    // 404请求不存在
+    case 404:
+      errMessage = t("sys.api.errMsg404");
+      break;
+    case 405:
+      errMessage = t("sys.api.errMsg405");
       break;
     case 408:
-      message = "请求超时";
+      errMessage = t("sys.api.errMsg408");
       break;
     case 500:
-      message = "服务器内部错误";
+      errMessage = t("sys.api.errMsg500");
       break;
     case 501:
-      message = "服务未实现";
+      errMessage = t("sys.api.errMsg501");
       break;
     case 502:
-      message = "网关错误";
+      errMessage = t("sys.api.errMsg502");
       break;
     case 503:
-      message = "服务不可用";
+      errMessage = t("sys.api.errMsg503");
       break;
     case 504:
-      message = "网关超时";
+      errMessage = t("sys.api.errMsg504");
       break;
     case 505:
-      message = "HTTP版本不受支持";
+      errMessage = t("sys.api.errMsg505");
       break;
     default:
-      message = "网络连接故障";
   }
-  showFailToast(message);
+  showFailToast(errMessage);
 }

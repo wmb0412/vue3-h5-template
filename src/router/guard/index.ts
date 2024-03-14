@@ -4,6 +4,7 @@ import setPageTitle from "@/utils/set-page-title";
 import { Router } from "vue-router";
 import { toRouteType } from "..";
 import { createPermissionGuard } from "./permissionGuard";
+import { t } from "@/locales";
 
 export function setupRouterGuard(router: Router) {
   createCachedViewGuard(router);
@@ -31,7 +32,7 @@ function createCachedViewGuard(router: Router) {
 }
 function createPageTitleGuard(router: Router) {
   router.beforeEach((to: toRouteType, from, next) => {
-    setPageTitle(to.meta.title);
+    setPageTitle(to.meta.title ? t(to.meta.title) : "");
     next();
   });
 }

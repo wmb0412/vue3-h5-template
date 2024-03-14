@@ -1,4 +1,5 @@
 import { ResultEnum } from "@/enums/httpEnum";
+import { t } from "@/locales";
 import { ErrorMessageMode, SuccessMessageMode } from "@/types/axios";
 import { showSuccessToast, showFailToast, showDialog } from "vant";
 interface Options {
@@ -17,11 +18,11 @@ export class AxiosMessageTip {
   }
   successTip() {
     const { message, successMessageMode } = this.options;
-    const text = message || "操作成功";
+    const text = message || t("sys.api.operationSuccess");
     if (successMessageMode === "toast") {
       showSuccessToast(text);
     } else if (successMessageMode === "dialog") {
-      showDialog({ title: "成功", message: text });
+      showDialog({ title: t("sys.api.successTip"), message: text });
     }
   }
   errorTip() {
@@ -30,18 +31,18 @@ export class AxiosMessageTip {
     if (errorMessageMode === "toast") {
       showFailToast(text);
     } else if (errorMessageMode === "dialog") {
-      showDialog({ title: "错误提示", message: text });
+      showDialog({ title: t("sys.api.errorTip"), message: text });
     }
   }
   getErrorMessage() {
     const { code, message } = this.options;
     return (
       {
-        [ResultEnum.TIMEOUT]: "登录超时，请重新登录",
-        [ResultEnum.OTHER_CUSTOM]: "其他自定义的错误"
+        [ResultEnum.TIMEOUT]: t("sys.api.timeoutMessage"),
+        [ResultEnum.OTHER_CUSTOM]: t("sys.api.otherCustomError")
       }[code] ||
       message ||
-      "操作失败"
+      t("sys.api.operationFailed")
     );
   }
 }

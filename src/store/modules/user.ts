@@ -7,7 +7,7 @@ import { PiniaEnum } from "@/enums/piniaEnum";
 import { store } from "..";
 
 interface LoginParams {
-  username: string;
+  account: string;
   password: string;
 }
 interface UserInfo {

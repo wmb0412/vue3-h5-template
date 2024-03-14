@@ -1,0 +1,19 @@
+{
+    "name": "Vue3-h5-template",
+    "describe": "🌱Based on Vue3 Family Bucket, TypeScript, and Vite building tools, out-of-the-box H5 mobile project basic template",
+    "feature1": "✔ ⚡ Vue3 + Vite4",
+    "feature10": "✔ Axios packaging",
+    "feature11": "✔ Pack resources gzip compression",
+    "feature12": "✔ The development environment supports Mock data",
+    "feature13": "✔ ESLint",
+    "feature14": "✔ First screen loading animation",
+    "feature15": "✔ Development environment debugging panel",
+    "feature2": "✔ 🍕TypeScript",
+    "feature3": "✔ ✨ Vant4 component library",
+    "feature4": "✔ 🌀 Tailwindcss atomic class framework",
+    "feature5": "✔ 🍍 Pinia status management",
+    "feature6": "✔ 🌓 Support dark mode",
+    "feature7": "✔ Vue-router 4",
+    "feature8": "✔ Support SVG icon automatic registration component",
+    "feature9": "✔ vw viewport adaptation"
+}

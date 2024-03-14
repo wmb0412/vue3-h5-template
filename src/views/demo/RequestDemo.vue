@@ -64,9 +64,9 @@ const { run: runError3, loading: errorLoading3 } = useRequest(
 <template>
   <div>
     <van-space>
-      <van-button type="success" @click="run" :loading="loading"
-        >成功请求只返回data (默认)</van-button
-      >
+      <van-button type="success" @click="run" :loading="loading">{{
+        $t("demo.requestDemo.demo1")
+      }}</van-button>
     </van-space>
   </div>
   <p>
@@ -74,9 +74,9 @@ const { run: runError3, loading: errorLoading3 } = useRequest(
   </p>
   <div class="mt-[30px]">
     <van-space>
-      <van-button type="success" @click="run2" :loading="loading2"
-        >成功请求返回code，message等内容</van-button
-      >
+      <van-button type="success" @click="run2" :loading="loading2">{{
+        $t("demo.requestDemo.demo2")
+      }}</van-button>
     </van-space>
   </div>
   <p>
@@ -84,35 +84,34 @@ const { run: runError3, loading: errorLoading3 } = useRequest(
   </p>
   <div class="mt-[30px]">
     <van-space>
-      <van-button type="success" @click="run3" :loading="loading3"
-        >成功请求返回整个响应体</van-button
-      >
+      <van-button type="success" @click="run3" :loading="loading3">{{
+        $t("demo.requestDemo.demo3")
+      }}</van-button>
     </van-space>
   </div>
   <p>
     {{ data3 }}
   </p>
   <div class="mt-[30px]">
-    <van-button type="success" @click="run4"
-      >快速点击两次，第一次被cancel</van-button
-    >
+    <van-button type="success" @click="run4">{{
+      $t("demo.requestDemo.demo4")
+    }}</van-button>
   </div>
   <div class="mt-[30px]">
-    <van-button type="danger" @click="runError" :loading="errorLoading"
-      >失败请求</van-button
-    >
+    <van-button type="danger" @click="runError" :loading="errorLoading">{{
+      $t("demo.requestDemo.demo5")
+    }}</van-button>
   </div>
   <div class="mt-[30px]">
-    <van-button type="danger" @click="runError2" :loading="errorLoading2"
-      >失败后再重试两次</van-button
-    >
+    <van-button type="danger" @click="runError2" :loading="errorLoading2">{{
+      $t("demo.requestDemo.demo6")
+    }}</van-button>
   </div>
   <div class="mt-[30px]">
-    <van-button type="danger" @click="runError3" :loading="errorLoading3"
-      >失败后dialog提示</van-button
-    >
+    <van-button type="danger" @click="runError3" :loading="errorLoading3">{{
+      $t("demo.requestDemo.demo7")
+    }}</van-button>
   </div>
 </template>
 
 <style scoped></style>
-@/api
