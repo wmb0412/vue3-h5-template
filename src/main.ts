@@ -15,11 +15,6 @@ import App from "./App.vue";
 import router from "./router";
 import { setupRouterGuard } from "./router/guard";
 
-// https://vant-contrib.gitee.io/vant/#/zh-CN/quickstart#4.-yin-ru-han-shu-zu-jian-de-yang-shi
-import "vant/es/toast/style";
-import "vant/es/dialog/style";
-import "vant/es/notify/style";
-import "vant/es/image-preview/style";
 import { setupI18n } from "./locales";
 
 async function bootstrap() {

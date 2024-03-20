@@ -1,5 +1,4 @@
 import { t } from "@/locales";
-import { showFailToast } from "vant";
 
 export function checkStatus(status, msg) {
   let errMessage = "";
