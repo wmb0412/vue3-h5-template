@@ -3,13 +3,13 @@ import { useUserStore } from "@/store/modules/user";
 import { ref } from "vue";
 
 const userStore = useUserStore();
-const account = ref("admin");
+const username = ref("admin");
 const password = ref("123456");
 const rememberMe = ref(true);
 const switchPassType = ref(true);
 const onSubmit = async () => {
   userStore.Login({
-    account: account.value,
+    username: username.value,
     password: password.value
   });
 };
@@ -18,8 +18,8 @@ const onSubmit = async () => {
 <template>
   <van-form @submit="onSubmit" class="pt-[16px] mx-[32px]">
     <van-field
-      v-model="account"
-      name="account"
+      v-model="username"
+      name="username"
       :label="$t('login.account')"
       :placeholder="$t('login.account')"
       :rules="[{ required: true, message: $t('login.accountPlaceholder') }]"

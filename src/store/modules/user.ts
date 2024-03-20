@@ -7,7 +7,7 @@ import { PiniaEnum } from "@/enums/piniaEnum";
 import { store } from "..";
 
 interface LoginParams {
-  account: string;
+  username: string;
   password: string;
 }
 interface UserInfo {
@@ -51,7 +51,7 @@ export const useUserStore = defineStore({
 
     async Login(params: LoginParams) {
       const data = await userLoginApi(params);
-      this.setToken(data.token);
+      this.setToken(data.token_type + " " + data.access_token);
       const redirectUrl = decodeURIComponent(
         (router.currentRoute?.value?.query?.redirect as string) ||
           PageEnum.BASE_HOME

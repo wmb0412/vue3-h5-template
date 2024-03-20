@@ -43,16 +43,19 @@ const { run: run4 } = useRequest(
   }
 );
 
-const { run: runError, loading: errorLoading } = useRequest(demoErrorApi, {
-  manual: true
-});
+const { run: runError, loading: errorLoading } = useRequest(
+  () => demoErrorApi(),
+  {
+    manual: true
+  }
+);
 
 const { run: runError2, loading: errorLoading2 } = useRequest(getDemoErrorApi, {
   manual: true
 });
 const { run: runError3, loading: errorLoading3 } = useRequest(
   () =>
-    demoErrorApi(null, {
+    demoErrorApi({
       errorMessageMode: "dialog"
     }),
   {

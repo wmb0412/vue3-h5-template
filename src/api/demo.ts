@@ -15,11 +15,10 @@ export function getDemoApi2() {
   });
 }
 
-export function demoErrorApi(data?: object, options?: RequestOptions) {
+export function demoErrorApi(options?: RequestOptions) {
   return defHttp.post<any>(
     {
-      url: Api.DemoError,
-      data
+      url: Api.DemoError
     },
     options
   );
