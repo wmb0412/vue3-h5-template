@@ -1,9 +1,9 @@
 <script setup lang="ts" name="Demo">
-import { reactive } from "vue";
+import { computed } from "vue";
 import { range } from "lodash-es";
 import logoUrl from "@/assets/imgs/logo.svg";
 import { t } from "@/locales";
-const contentList = reactive(
+const contentList = computed(() =>
   range(15).map(item => t(`home.feature${item + 1}`))
 );
 </script>

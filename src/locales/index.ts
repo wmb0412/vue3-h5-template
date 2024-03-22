@@ -1,7 +1,9 @@
 import { useLocaleStoreWithOut } from "@/store/modules/locale";
+import { LocaleType } from "@/types/config";
 import { App } from "vue";
 import { I18nOptions, createI18n } from "vue-i18n";
 export let i18n: ReturnType<typeof createI18n>;
+export const loadedSourceLang: LocaleType[] = [];
 export async function setupI18n(app: App) {
   const options = await createI18nOptions();
   i18n = createI18n(options);
@@ -11,14 +13,34 @@ export async function setupI18n(app: App) {
 async function createI18nOptions(): Promise<I18nOptions> {
   const localeStore = useLocaleStoreWithOut();
   const locale = localeStore.getLocale;
-  const defaultLocal = await import(`./lang/${locale}.ts`);
-  const message = defaultLocal.default?.message ?? {};
+  const message = await importLangSource(locale);
   return {
     locale,
+    legacy: false,
     messages: {
       [locale]: message
     }
   };
+}
+async function importLangSource(locale: LocaleType) {
+  loadedSourceLang.push(locale);
+  const langModule = ((await import(`./lang/${locale}.ts`)) as any).default;
+  const { message } = langModule;
+  return message;
+}
+export async function setI18nMessage(locale: LocaleType) {
+  if (!loadedSourceLang.includes(locale)) {
+    const message = await importLangSource(locale);
+    i18n.global.setLocaleMessage(locale, message);
+  }
+}
+export function setI18nLanguage(locale: LocaleType) {
+  console.log("i18n", i18n);
+  if (i18n.mode === "legacy") {
+    i18n.global.locale = locale;
+  } else {
+    (i18n.global.locale as any).value = locale;
+  }
 }
 type I18nGlobalTranslation = {
   (key: string): string;

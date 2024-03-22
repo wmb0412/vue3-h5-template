@@ -3,6 +3,8 @@ import { defineStore } from "pinia";
 import { store } from "..";
 import { PiniaEnum } from "@/enums/piniaEnum";
 import { LocalStorageEnum } from "@/enums/storageEnum";
+import { setI18nLanguage, setI18nMessage } from "@/locales";
+import { setRouteTitle } from "@/router";
 
 interface LocaleState {
   localInfo: LocaleSetting;
@@ -29,11 +31,14 @@ export const useLocaleStore = defineStore({
   },
   actions: {
     setLocaleInfo(info: Partial<LocaleSetting>) {
-      this.localInfo = { ...this.localInfo, ...info };
-      location.reload();
+      const newLocalInfo = { ...this.localInfo, ...info };
+      this.localInfo = newLocalInfo;
     },
-    toggleLocale() {
+    async toggleLocale() {
       const nextLocale = this.getLocale === "zh_CN" ? "en" : "zh_CN";
+      await setI18nMessage(nextLocale);
+      setI18nLanguage(nextLocale);
+      setRouteTitle();
       this.setLocaleInfo({
         locale: nextLocale
       });

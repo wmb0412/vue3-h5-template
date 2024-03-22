@@ -13,10 +13,9 @@
 
 <script setup lang="ts">
 import { t } from "@/locales";
-import { ref, reactive } from "vue";
-
+import { ref, computed } from "vue";
 const active = ref(0);
-const tabbarData = reactive([
+const tabbarData = computed(() => [
   {
     icon: "wap-home-o",
     title: t("common.home"),
