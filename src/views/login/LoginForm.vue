@@ -40,7 +40,7 @@ const onSubmit = async () => {
         <van-icon v-else name="closed-eye" />
       </template>
     </van-field>
-    <div class="flex justify-between mt-[16px]">
+    <div class="flex justify-between mt-16">
       <div class="flex items-center">
         <van-switch v-model="rememberMe" size="18px" class="mr-[16px]" />
         <span>{{ $t("login.rememberMe") }}</span>
